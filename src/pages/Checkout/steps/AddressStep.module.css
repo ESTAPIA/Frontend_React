@@ -1,0 +1,230 @@
+/* ============================================
+   ADDRESS STEP - PASO 1 DIRECCIÓN
+   Replicando el diseño del form original
+   ============================================ */
+
+.addressStep {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: slideInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.addressForm {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(46, 125, 50, 0.1);
+  border: 1px solid var(--border-light);
+}
+
+/* Form Group */
+.formGroup {
+  margin-bottom: 2rem;
+}
+
+.formLabel {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.addressTextarea {
+  border: 2px solid var(--border-gray);
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.addressTextarea:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.15);
+  outline: none;
+}
+
+.addressTextarea.is-valid {
+  border-color: var(--success-color);
+  background-color: rgba(76, 175, 80, 0.05);
+}
+
+.addressTextarea.is-invalid {
+  border-color: var(--danger-color);
+  background-color: rgba(220, 53, 69, 0.05);
+}
+
+.addressTextarea:disabled {
+  background-color: var(--light-gray);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Feedback Messages */
+.errorMessage {
+  display: flex;
+  align-items: center;
+  color: var(--danger-color);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  color: var(--success-color);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.helpText {
+  display: flex;
+  align-items: center;
+  color: var(--medium-gray);
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+/* Action Area */
+.actionArea {
+  text-align: center;
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 0.875rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--secondary-green) 0%, var(--hover-green) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+}
+
+.submitBtn:disabled {
+  background: var(--medium-gray);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.submitBtn.loading {
+  color: transparent;
+}
+
+.submitBtn.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Keyframes para animaciones */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Additional Info */
+.additionalInfo {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.securityNote,
+.deliveryNote {
+  display: flex;
+  align-items: center;
+  color: var(--medium-gray);
+}
+
+.securityNote small,
+.deliveryNote small {
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .addressForm {
+    padding: 1.5rem;
+  }
+  
+  .submitBtn {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .additionalInfo {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .addressStep {
+    padding: 0 1rem;
+  }
+  
+  .addressForm {
+    padding: 1rem;
+  }
+  
+  .formLabel {
+    font-size: 1rem;
+  }
+  
+  .addressTextarea {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Estados de hover para el textarea */
+.addressTextarea:hover:not(:disabled):not(:focus) {
+  border-color: var(--primary-green);
+}
+
+/* Efectos de focus mejorados */
+.addressTextarea:focus + .helpText {
+  color: var(--primary-green);
+}

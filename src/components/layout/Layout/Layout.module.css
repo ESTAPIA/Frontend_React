@@ -1,0 +1,22 @@
+/* Layout.module.css - Estilos del componente Layout */
+
+.layout {
+  min-height: 100vh;
+}
+
+.mainContent {
+  padding-top: 0;
+  transition: var(--transition-normal);
+}
+
+/* Ajuste cuando hay banner de perfil */
+.mainContent.withProfileBanner {
+  padding-top: 42px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 0;
+  }
+}

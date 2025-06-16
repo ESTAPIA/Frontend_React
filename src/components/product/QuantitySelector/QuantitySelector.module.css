@@ -1,0 +1,119 @@
+/* QuantitySelector.module.css */
+.quantitySelector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+  background: white;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: var(--bg-light);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--primary-color);
+  color: white;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input {
+  width: 60px;
+  height: 40px;
+  border: none;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  background: white;
+  outline: none;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--primary-color);
+}
+
+/* Ocultar flechas del input number */
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.stockInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.inStock {
+  color: var(--success-color);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.outOfStock {
+  color: var(--danger-color);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Estados de hover y focus */
+.controls:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .button {
+    width: 35px;
+    height: 35px;
+    font-size: 0.8rem;
+  }
+  
+  .input {
+    width: 50px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+}

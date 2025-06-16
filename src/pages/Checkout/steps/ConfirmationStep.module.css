@@ -1,0 +1,549 @@
+/* ============================================
+   CONFIRMATION STEP - PASO 3 FINAL
+   Replicando exactamente el diseño del original
+   ============================================ */
+
+.confirmationStep {
+  width: 100%;
+  animation: slideInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Section Header */
+.confirmationSection {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.sectionHeader h5 {
+  color: var(--primary-green);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.sectionHeader p {
+  font-size: 0.9rem;
+  color: var(--medium-gray);
+}
+
+/* Order Summary Card */
+.orderSummaryCard {
+  background: linear-gradient(135deg, var(--primary-cream) 0%, var(--secondary-cream) 100%);
+  border-radius: 15px;
+  border: 1px solid var(--border-gray);
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.08);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.orderSummary {
+  padding: 1.5rem;
+}
+
+/* Summary Items */
+.summaryItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.summaryItem:last-child {
+  border-bottom: none;
+}
+
+.itemImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.itemImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itemInfo {
+  flex-grow: 1;
+}
+
+.itemName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-bottom: 0.25rem;
+}
+
+.itemDescription {
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+  margin-bottom: 0.5rem;
+}
+
+.itemDetails {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.itemQuantity {
+  color: var(--medium-gray);
+}
+
+.itemPrice {
+  color: var(--primary-green);
+  font-weight: 500;
+}
+
+.itemTotal {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  text-align: right;
+}
+
+/* Summary Total */
+.summaryTotal {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--border-gray);
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.finalTotal {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  border-top: 1px solid var(--border-light);
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+}
+
+/* Confirmation Info Sticky */
+.confirmationInfoSticky {
+  position: sticky;
+  top: 2rem;
+}
+
+/* Confirmation Cards */
+.confirmationCard {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border-gray);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.confirmationCard:hover {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.cardHeader {
+  background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-cream) 100%);
+  border-bottom: 1px solid var(--border-gray);
+  padding: 0.75rem 1rem;
+}
+
+.cardHeader h6 {
+  margin: 0;
+  color: var(--primary-green);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.cardBody {
+  padding: 1rem;
+}
+
+/* Delivery Card */
+.deliveryCard .addressText {
+  background: var(--accent-cream);
+  padding: 0.75rem;
+  border-radius: 6px;
+  border-left: 3px solid var(--primary-green);
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.deliveryEstimate {
+  margin-top: 1rem;
+}
+
+.estimateItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+}
+
+.estimateItem i {
+  color: var(--success-color);
+}
+
+/* Payment Card */
+.paymentAccount .accountText {
+  background: var(--accent-cream);
+  padding: 0.75rem;
+  border-radius: 6px;
+  border-left: 3px solid var(--secondary-green);
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.paymentTotal {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.totalAmount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.amount {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-green);
+}
+
+/* Confirmation Warning */
+.confirmationWarning {
+  border-color: var(--warning-color);
+  background: rgba(255, 193, 7, 0.1);
+}
+
+/* Confirmation Actions */
+.confirmationActions {
+  margin-top: 1.5rem;
+}
+
+.confirmBtn {
+  background: linear-gradient(135deg, var(--success-color) 0%, var(--secondary-green) 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.confirmBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--secondary-green) 0%, var(--hover-green) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(76, 175, 80, 0.4);
+}
+
+.confirmBtn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.confirmBtn:disabled {
+  background: var(--medium-gray);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Loading State */
+.btnLoading {
+  background: linear-gradient(135deg, var(--medium-gray) 0%, var(--dark-gray) 100%) !important;
+  animation: loadingPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* ============================================
+   SUCCESS MODAL - MODAL DE ÉXITO
+   ============================================ */
+
+.successModal {
+  z-index: 1055;
+}
+
+.successBackdrop {
+  z-index: 1050;
+  pointer-events: none;
+}
+
+.orderSuccessContent {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1060;
+}
+
+.successHeader {
+  background: linear-gradient(135deg, var(--success-color) 0%, var(--secondary-green) 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  border-bottom: none;
+}
+
+.successIconContainer {
+  margin-bottom: 1rem;
+}
+
+.successIcon {
+  font-size: 4rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.successIcon.animateSuccess {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.successText h4 {
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.successSubtitle {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.successBody {
+  padding: 2rem;
+}
+
+.orderSuccessDetails {
+  text-align: center;
+}
+
+.orderInfoCard {
+  display: flex;
+  justify-content: space-around;
+  background: var(--accent-cream);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.orderNumberSection,
+.orderAmountSection {
+  text-align: center;
+}
+
+.orderLabel,
+.amountLabel {
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.orderNumber,
+.amountValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-green);
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.messageIcon {
+  font-size: 3rem;
+  color: var(--success-color);
+}
+
+.messageContent h5 {
+  color: var(--dark-green);
+  margin-bottom: 0.5rem;
+}
+
+.messageContent p {
+  color: var(--medium-gray);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.nextSteps h6 {
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+}
+
+.stepIcon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-cream) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-green);
+  font-size: 1.2rem;
+}
+
+.stepText strong {
+  display: block;
+  color: var(--dark-green);
+  margin-bottom: 0.25rem;
+}
+
+.stepText span {
+  color: var(--medium-gray);
+  font-size: 0.9rem;
+}
+
+.successFooter {
+  background: var(--accent-cream);
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.footerActions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footerActions .btnAction {
+  min-width: 160px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .confirmationStep {
+    padding: 0 1rem;
+  }
+  
+  .summaryItem {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .itemDetails {
+    justify-content: center;
+  }
+  
+  .confirmationActions .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .orderInfoCard {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .footerActions {
+    flex-direction: column;
+  }
+  
+  .footerActions .btnAction {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .confirmationInfoSticky {
+    position: static;
+  }
+  
+  .successHeader {
+    padding: 1.5rem;
+  }
+  
+  .successIcon {
+    font-size: 3rem;
+  }
+  
+  .successBody {
+    padding: 1.5rem;
+  }
+  
+  .successMessage {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .nextSteps h6 {
+    text-align: center;
+  }
+}
+
+/* Animaciones */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

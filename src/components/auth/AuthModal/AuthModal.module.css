@@ -1,0 +1,114 @@
+/* AuthModal.module.css - Estilos del modal de autenticación */
+
+.authModal .modal-content {
+  border: none;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+}
+
+.modalHeader {
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: white;
+  border-radius: 12px 12px 0 0;
+  border-bottom: none;
+}
+
+.modalHeader .modal-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.modalHeader .btn-close {
+  filter: invert(1);
+}
+
+.modalBody {
+  padding: 2rem;
+}
+
+.tabLink {
+  color: var(--dark-green) !important;
+  border-color: transparent !important;
+  transition: var(--transition-fast);
+  font-weight: 500;
+}
+
+.tabLink:hover {
+  color: var(--primary-green) !important;
+  border-color: var(--light-green) !important;
+}
+
+.tabLink.active {
+  color: var(--primary-green) !important;
+  border-color: var(--primary-green) !important;
+  background-color: var(--light-green) !important;
+}
+
+/* Estilos de formularios */
+.authModal .form-label {
+  color: var(--dark-green);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.authModal .form-control {
+  border: 2px solid var(--border-gray);
+  border-radius: 8px;
+  padding: 0.75rem;
+  transition: var(--transition-fast);
+}
+
+.authModal .form-control:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+}
+
+.authModal .form-control.is-invalid {
+  border-color: var(--error-color);
+}
+
+.authModal .form-text {
+  color: var(--medium-gray);
+  font-size: 0.875rem;
+}
+
+.authModal .invalid-feedback {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Botones */
+.authModal .btn-primary-green {
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: var(--transition-normal);
+}
+
+.authModal .btn-primary-green:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.authModal .btn-primary-green:disabled {
+  opacity: 0.7;
+  transform: none;
+}
+
+/* Spinner de carga */
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .modalBody {
+    padding: 1.5rem;
+  }
+  
+  .authModal .form-control {
+    padding: 0.5rem;
+  }
+}

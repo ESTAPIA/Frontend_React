@@ -1,0 +1,43 @@
+/* src/components/common/SearchBar/SearchBar.module.css */
+
+.searchBar {
+  position: relative;
+}
+
+.searchBar .input-group-text {
+  background-color: white;
+  border-right: none;
+  color: var(--medium-gray);
+}
+
+.searchBar .form-control {
+  border-left: none;
+  box-shadow: none;
+}
+
+.searchBar .form-control:focus {
+  border-color: var(--primary-green);
+  box-shadow: none;
+}
+
+.searchBar .form-control:focus + .input-group-text,
+.searchBar .input-group-text:has(+ .form-control:focus) {
+  border-color: var(--primary-green);
+}
+
+.searchBar .btn-outline-secondary {
+  border-left: none;
+  color: var(--medium-gray);
+}
+
+.searchBar .btn-outline-secondary:hover {
+  background-color: var(--light-gray);
+  border-color: var(--medium-gray);
+  color: var(--dark-gray);
+}
+
+@media (max-width: 768px) {
+  .searchBar {
+    margin-bottom: var(--spacing-md);
+  }
+}

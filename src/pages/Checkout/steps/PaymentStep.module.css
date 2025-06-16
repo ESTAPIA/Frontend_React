@@ -1,0 +1,311 @@
+/* ============================================
+   PAYMENT STEP - PASO 2 MÉTODO DE PAGO
+   Replicando exactamente el diseño del original
+   ============================================ */
+
+.paymentStep {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.paymentForm {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(46, 125, 50, 0.1);
+  border: 1px solid var(--border-light);
+}
+
+/* Loading State */
+.loadingState {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(46, 125, 50, 0.1);
+  border: 1px solid var(--border-light);
+}
+
+/* Section Header */
+.sectionHeader {
+  margin-bottom: 2rem;
+}
+
+.sectionHeader h5 {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.sectionHeader p {
+  margin: 0;
+  color: var(--medium-gray);
+  font-size: 1rem;
+}
+
+/* Grid de cuentas bancarias */
+.accountsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Opción de cuenta bancaria */
+.accountOption {
+  position: relative;
+  background: white;
+  border: 2px solid var(--border-gray);
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+.accountOption:hover:not(.insufficientFunds) {
+  border-color: var(--primary-green);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
+  transform: translateY(-2px);
+}
+
+.accountOption.selected {
+  border-color: var(--primary-green);
+  background: linear-gradient(135deg, var(--accent-cream) 0%, rgba(46, 125, 50, 0.05) 100%);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.2);
+  transform: translateY(-2px);
+}
+
+.accountOption.insufficientFunds {
+  border-color: var(--danger-color);
+  background: rgba(220, 53, 69, 0.05);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.accountOption.insufficientFunds:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Indicador de selección */
+.selectionIndicator {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-gray);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.accountOption.selected .selectionIndicator {
+  border-color: var(--primary-green);
+  background: var(--primary-green);
+}
+
+.accountOption.selected .selectionIndicator::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Header de la cuenta */
+.accountHeader {
+  margin-bottom: 1rem;
+}
+
+.accountType {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-bottom: 0.25rem;
+}
+
+/* Número de cuenta */
+.accountNumber {
+  display: flex;
+  align-items: center;
+  color: var(--medium-gray);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Balance de la cuenta */
+.accountBalance {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.balanceLabel {
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+  font-weight: 500;
+}
+
+.balanceAmount {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--success-color);
+}
+
+.balanceAmount.balanceInsufficient {
+  color: var(--danger-color);
+}
+
+/* Nota de seguridad */
+.securityNote {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--accent-cream);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-light);
+}
+
+.securityNote i {
+  color: var(--success-color);
+  font-size: 1.2rem;
+}
+
+.securityNote p {
+  margin: 0;
+  color: var(--medium-gray);
+  font-weight: 500;
+}
+
+/* Área de acciones */
+.actionArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.continueBtn {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 220px;
+}
+
+.continueBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--secondary-green) 0%, var(--hover-green) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+}
+
+.continueBtn:disabled {
+  background: var(--medium-gray);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .paymentForm {
+    padding: 1.5rem;
+  }
+  
+  .accountsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .accountOption {
+    padding: 1rem;
+  }
+  
+  .actionArea {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .actionArea button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .paymentStep {
+    padding: 0 1rem;
+  }
+  
+  .paymentForm {
+    padding: 1rem;
+  }
+  
+  .accountType {
+    font-size: 1rem;
+  }
+  
+  .balanceAmount {
+    font-size: 1.1rem;
+  }
+}
+
+/* Animaciones de entrada */
+.paymentStep {
+  animation: slideInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efectos de selección animados */
+.accountOption.selected {
+  animation: selectionPulse 0.6s ease;
+}
+
+@keyframes selectionPulse {
+  0% {
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 35px rgba(46, 125, 50, 0.4);
+  }
+  100% {
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.2);
+  }
+}
+
+/* Efectos hover animados para cuentas insuficientes */
+.accountOption.insufficientFunds:hover {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}

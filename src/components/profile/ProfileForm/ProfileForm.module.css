@@ -1,0 +1,345 @@
+/* src/components/profile/ProfileForm/ProfileForm.module.css */
+
+/* Contenedor principal del formulario */
+.profileFormContainer {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.1);
+  border: 2px solid var(--primary-green);
+  position: relative;
+  overflow: hidden;
+}
+
+.profileFormContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--secondary-green));
+}
+
+/* Header del formulario */
+.editFormHeader {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-gray);
+}
+
+.editTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.editSubtitle {
+  color: var(--medium-gray);
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Formulario moderno */
+.modernForm {
+  position: relative;
+}
+
+.modernFormGroup {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.modernLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.modernInput {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--border-gray);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: white;
+  color: var(--dark-green);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.modernInput:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Estados de validación */
+.validInput {
+  border-color: var(--success-color);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fff8 100%);
+}
+
+.validInput:focus {
+  border-color: var(--success-color);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.invalidInput {
+  border-color: #F44336;
+  background: linear-gradient(135deg, #ffffff 0%, #fff8f8 100%);
+}
+
+.invalidInput:focus {
+  border-color: #F44336;
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+.disabledInput {
+  background: var(--light-gray);
+  color: var(--medium-gray);
+  cursor: not-allowed;
+  border-color: var(--border-gray);
+}
+
+/* Feedback de validación */
+.validationFeedback {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  min-height: 1.2rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.validFeedback {
+  color: var(--success-color);
+}
+
+.invalidFeedback {
+  color: #F44336;
+}
+
+.formHelp {
+  color: var(--medium-gray);
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Acciones del formulario */
+.formActions {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--border-gray);
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+/* Botones modernos */
+.btnModernPrimary {
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.btnModernPrimary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+.btnModernPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.4);
+}
+
+.btnModernPrimary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btnModernPrimary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btnModernPrimary:disabled:hover::before {
+  width: 0;
+  height: 0;
+}
+
+.btnModernSecondary {
+  background: white;
+  color: var(--primary-green);
+  border: 2px solid var(--primary-green);
+  padding: 12px 26px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.btnModernSecondary:hover {
+  background: var(--primary-green);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+}
+
+.btnModernSecondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Animaciones de entrada */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profileFormContainer {
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* Efectos de hover para campos */
+.modernFormGroup:hover .modernLabel {
+  color: var(--secondary-green);
+  transform: translateX(5px);
+}
+
+.modernFormGroup:hover .modernInput {
+  border-color: var(--primary-green);
+  box-shadow: 0 2px 10px rgba(46, 125, 50, 0.05);
+}
+
+/* Loading state en campos */
+.modernInput:focus::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary-green), var(--secondary-green));
+  border-radius: 2px;
+  animation: loadingPulse 2s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profileFormContainer {
+    padding: 1.5rem;
+    margin: 0 0.5rem;
+  }
+  
+  .editTitle {
+    font-size: 1.25rem;
+  }
+  
+  .formActions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .btnModernPrimary,
+  .btnModernSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .modernInput {
+    padding: 12px 16px;
+  }
+}
+
+/* Estados especiales */
+.modernInput[type="password"] {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+}
+
+.modernInput[type="password"]:placeholder-shown {
+  font-family: var(--font-family);
+  letter-spacing: normal;
+}
+
+/* Indicador de campo requerido */
+.modernLabel::after {
+  content: ' *';
+  color: #F44336;
+  font-weight: 700;
+}
+
+.modernFormGroup:has(.disabledInput) .modernLabel::after {
+  display: none;
+}
+
+/* Efecto de progreso en el formulario */
+.modernForm::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-green), transparent);
+  border-radius: 1px;
+  animation: progressLine 3s ease-in-out infinite;
+}
+
+@keyframes progressLine {
+  0% { width: 0%; opacity: 0; }
+  50% { width: 100%; opacity: 1; }
+  100% { width: 100%; opacity: 0; }
+}

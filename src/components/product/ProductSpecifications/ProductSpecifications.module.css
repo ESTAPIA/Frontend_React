@@ -1,0 +1,177 @@
+/* ProductSpecifications.module.css */
+.specifications {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.title i {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.table {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+
+.row:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.value {
+  font-weight: 500;
+  color: var(--text-dark);
+  font-size: 1rem;
+  text-align: right;
+}
+
+.description {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.descriptionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 1rem 0;
+}
+
+.descriptionTitle::before {
+  content: '\f075';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+}
+
+.descriptionText {
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.noSpecifications {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.noSpecifications i {
+  font-size: 2.5rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.noSpecifications p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .specifications {
+    padding: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.1rem;
+  }
+  
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    text-align: left;
+  }
+  
+  .value {
+    text-align: left;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+  
+  .description {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+  
+  .noSpecifications {
+    padding: 2rem 1rem;
+  }
+  
+  .noSpecifications i {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .specifications {
+    padding: 0.75rem;
+  }
+  
+  .title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .row {
+    padding: 0.5rem;
+  }
+  
+  .label {
+    font-size: 0.8rem;
+  }
+  
+  .value {
+    font-size: 0.9rem;
+  }
+}

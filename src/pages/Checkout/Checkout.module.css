@@ -1,0 +1,85 @@
+/* ============================================
+   CHECKOUT PAGE - DISEÑO PRINCIPAL
+   Base para el stepper de 3 pasos
+   ============================================ */
+
+.checkoutPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--primary-cream) 0%, var(--accent-cream) 100%);
+  padding: 2rem 0;
+}
+
+/* Header de la página */
+.checkoutHeader {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flowInfo {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Contenedor de pasos */
+.stepsContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Placeholder para desarrollo */
+.stepPlaceholder {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--accent-cream);
+  border-radius: 10px;
+  border: 2px dashed var(--primary-green);
+  margin: 2rem 0;
+}
+
+.stepPlaceholder h4 {
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+}
+
+.stepPlaceholder p {
+  color: var(--medium-gray);
+  margin-bottom: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .checkoutPage {
+    padding: 1rem 0;
+  }
+  
+  .pageTitle {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .stepPlaceholder {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .pageTitle {
+    font-size: 1.75rem;
+  }
+  
+  .stepPlaceholder {
+    padding: 1.5rem 1rem;
+  }
+}

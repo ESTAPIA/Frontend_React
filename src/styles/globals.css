@@ -1,0 +1,102 @@
+/* ========================================
+   VARIABLES DE COLORES - PALETA VERDE + CREMA
+   MIGRACIÓN REACT: Variables CSS globales mantenidas del original
+   ======================================== */
+:root {
+  /* VERDES - Colores principales */
+  --primary-green: #2E7D32;      /* Verde bosque principal */
+  --secondary-green: #4CAF50;    /* Verde claro para botones */
+  --dark-green: #1B5E20;         /* Verde oscuro para texto */
+  --light-green: #E8F5E8;        /* Verde muy claro para fondos */
+  --hover-green: #388E3C;        /* Verde para hover effects */
+  
+  /* CREMAS - Colores complementarios */
+  --primary-cream: #FFF8E1;      /* Crema suave principal */
+  --secondary-cream: #F5F5DC;    /* Beige para fondos */
+  --warm-cream: #FAF0E6;         /* Crema cálido */
+  --accent-cream: #FFFDE7;       /* Crema para acentos */
+  
+  /* GRISES COMPLEMENTARIOS */
+  --light-gray: #F8F9FA;
+  --medium-gray: #6C757D;
+  --dark-gray: #343A40;
+  --border-gray: #DEE2E6;
+  
+  /* UTILIDADES */
+  --success-color: var(--secondary-green);
+  --warning-color: #FF9800;
+  --error-color: #F44336;
+  --info-color: var(--primary-green);
+  
+  /* TRANSICIONES */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s ease-in-out;
+  
+  /* SOMBRAS */
+  --shadow-sm: 0 2px 4px rgba(46, 125, 50, 0.1);
+  --shadow-md: 0 4px 8px rgba(46, 125, 50, 0.15);
+  --shadow-lg: 0 8px 16px rgba(46, 125, 50, 0.2);
+}
+
+/* ========================================
+   CLASES DE UTILIDAD
+   ======================================== */
+
+/* Colores de fondo */
+.bg-primary-green { background-color: var(--primary-green) !important; }
+.bg-secondary-green { background-color: var(--secondary-green) !important; }
+.bg-light-green { background-color: var(--light-green) !important; }
+.bg-primary-cream { background-color: var(--primary-cream) !important; }
+.bg-secondary-cream { background-color: var(--secondary-cream) !important; }
+
+/* Colores de texto */
+.text-primary-green { color: var(--primary-green) !important; }
+.text-secondary-green { color: var(--secondary-green) !important; }
+.text-dark-green { color: var(--dark-green) !important; }
+
+/* Bordes */
+.border-primary-green { border-color: var(--primary-green) !important; }
+.border-secondary-green { border-color: var(--secondary-green) !important; }
+
+/* Botones personalizados */
+.btn-primary-green {
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+  color: white;
+}
+
+.btn-primary-green:hover {
+  background-color: var(--hover-green);
+  border-color: var(--hover-green);
+  color: white;
+}
+
+.btn-secondary-green {
+  background-color: var(--secondary-green);
+  border-color: var(--secondary-green);
+  color: white;
+}
+
+.btn-secondary-green:hover {
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+  color: white;
+}
+
+/* Utilidades generales */
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+.transition-fast {
+  transition: var(--transition-fast);
+}
+
+.transition-normal {
+  transition: var(--transition-normal);
+}
+
+.shadow-green {
+  box-shadow: var(--shadow-md);
+}

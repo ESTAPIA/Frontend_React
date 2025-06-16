@@ -1,0 +1,209 @@
+/* src/components/profile/ProfileBanner/ProfileBanner.module.css */
+
+.professionalProfileBanner {
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 50%, #CDDC39 100%);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+  animation: slideInFromTop 0.6s ease-out;
+  transition: all 0.4s ease;
+}
+
+.professionalProfileBanner.dismissing {
+  animation: slideOutToTop 0.4s ease-in;
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Icono del banner */
+.bannerIcon {
+  font-size: 2.5rem;
+  margin-right: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenido principal del banner */
+.bannerContent {
+  flex: 1;
+  margin-right: 1.5rem;
+}
+
+.bannerTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.bannerSubtitle {
+  font-size: 0.95rem;
+  margin: 0;
+  opacity: 0.95;
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Acciones del banner */
+.bannerActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Botón completar perfil */
+.btnCompleteProfile {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary-green);
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btnCompleteProfile:hover {
+  background: #fff;
+  color: var(--secondary-green);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btnCompleteProfile i {
+  font-size: 1.1rem;
+}
+
+/* Botón cerrar */
+.btnCloseModern {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.btnCloseModern:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+  color: #fff;
+}
+
+.btnCloseModern i {
+  font-size: 0.9rem;
+  color: #e91e63;
+}
+
+.btnCloseModern:hover i {
+  color: #fff;
+}
+
+/* Indicador de progreso decorativo */
+.progressIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.3) 0%, 
+    rgba(255, 255, 255, 0.6) 50%, 
+    rgba(255, 255, 255, 0.3) 100%);
+  animation: shimmer 2s infinite;
+}
+
+/* Animaciones */
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToTop {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .professionalProfileBanner .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .bannerIcon {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .bannerContent {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .bannerActions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+  
+  .btnCompleteProfile {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .bannerTitle {
+    font-size: 1.1rem;
+  }
+  
+  .bannerSubtitle {
+    font-size: 0.85rem;
+  }
+  
+  .btnCompleteProfile {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}

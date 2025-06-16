@@ -1,0 +1,510 @@
+/* src/pages/Profile/Profile.module.css */
+
+.profilePage {
+  background: linear-gradient(135deg, var(--accent-cream) 0%, var(--primary-cream) 100%);
+  min-height: calc(100vh - 200px);
+  position: relative;
+}
+
+/* Fondo animado */
+.profileBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(46,125,50,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(46,125,50,0.08)"/><circle cx="40" cy="80" r="1" fill="rgba(46,125,50,0.1)"/></svg>');
+  animation: floatParticles 10s ease-in-out infinite;
+  opacity: 0.3;
+}
+
+.lightningEffect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 40%, rgba(46,125,50,0.05) 50%, transparent 60%);
+  animation: lightningMove 8s ease-in-out infinite;
+}
+
+@keyframes floatParticles {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes lightningMove {
+  0%, 100% { transform: translateX(-100px); }
+  50% { transform: translateX(100px); }
+}
+
+/* Header del Perfil Modernizado */
+.profileModernHeader {
+  background: linear-gradient(135deg, var(--primary-cream) 0%, var(--accent-cream) 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.1);
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.profileModernHeader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(46, 125, 50, 0.05), transparent);
+  animation: shimmerProfile 4s ease-in-out infinite;
+}
+
+@keyframes shimmerProfile {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+.profileAvatarSection {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profileAvatar {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.5rem;
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+  animation: avatarPulse 3s ease-in-out infinite;
+}
+
+@keyframes avatarPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.avatarStatusIndicator {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background: var(--success-color);
+  border: 3px solid white;
+  border-radius: 50%;
+  animation: statusBlink 2s ease-in-out infinite;
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.profileHeaderInfo h1.profileName {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin: 0;
+}
+
+.profileSubtitle {
+  color: var(--medium-gray);
+  margin: 0.25rem 0 1rem 0;
+  font-weight: 500;
+}
+
+/* Indicador de Completitud */
+.profileCompletionIndicator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.completionText {
+  font-size: 0.9rem;
+  color: var(--dark-green);
+  font-weight: 500;
+}
+
+.completionBar {
+  width: 150px;
+  height: 8px;
+  background: var(--border-gray);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.completionProgress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--secondary-green), var(--primary-green));
+  border-radius: 4px;
+  transition: width 0.6s ease;
+  position: relative;
+}
+
+.completionProgress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: progressShimmer 2s ease-in-out infinite;
+}
+
+@keyframes progressShimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.completionPercentage {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-green);
+}
+
+/* Botón de Edición Rápida */
+.btnModernEdit {
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btnModernEdit::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+.btnModernEdit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+}
+
+.btnModernEdit:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Tarjeta Principal Modernizada */
+.cardShadowPremium {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(46, 125, 50, 0.1);
+  background: linear-gradient(135deg, var(--primary-cream) 0%, var(--secondary-cream) 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.cardHeaderModern {
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: white;
+  padding: 1.5rem 2rem;
+  border: none;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerContent h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.headerBadges .badge {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+
+/* Estadísticas del Usuario */
+.userStatsSection {
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--secondary-green));
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
+}
+
+.statIcon {
+  font-size: 2rem;
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+}
+
+.statNumber {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: var(--medium-gray);
+  font-weight: 500;
+}
+
+/* Sección de Información Personal */
+.profileInfoSection {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.infoField {
+  background: white;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 10px rgba(46, 125, 50, 0.05);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.infoField:hover {
+  border-color: var(--primary-green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.1);
+}
+
+.fieldLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.fieldValue {
+  font-size: 1rem;
+  color: var(--dark-green);
+  font-weight: 500;
+}
+
+.fieldValue:empty::after {
+  content: "No especificado";
+  color: var(--medium-gray);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Tarjetas de Acceso Rápido */
+.quickAccessSection {
+  border-top: 2px solid var(--border-gray);
+  padding-top: 2rem;
+}
+
+.quickAccessCard {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.quickAccessCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(46, 125, 50, 0.03), transparent);
+  transition: all 0.6s ease;
+}
+
+.quickAccessCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(46, 125, 50, 0.15);
+}
+
+.quickAccessCard:hover::before {
+  left: 100%;
+}
+
+.cardIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.ordersIcon {
+  background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+}
+
+.catalogIcon {
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+}
+
+.cartIcon {
+  background: linear-gradient(135deg, #4ECDC4, #44A08D);
+}
+
+.cardContent {
+  flex-grow: 1;
+}
+
+.cardContent h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-bottom: 0.5rem;
+}
+
+.cardContent p {
+  color: var(--medium-gray);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.cardStats {
+  margin-bottom: 1rem;
+}
+
+.statsBadge {
+  background: var(--light-green);
+  color: var(--primary-green);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.cardAction {
+  color: var(--primary-green);
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.cardAction:hover {
+  background: var(--light-green);
+  color: var(--primary-green);
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profileModernHeader {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .profileAvatarSection {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profileCompletionIndicator {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .completionBar {
+    width: 200px;
+  }
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplicar animaciones a los elementos principales */
+.cardShadowPremium,
+.profileModernHeader {
+  animation: fadeInUp 0.6s ease-out;
+}

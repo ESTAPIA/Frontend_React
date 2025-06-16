@@ -1,0 +1,716 @@
+/* src/pages/Home/Home.module.css */
+
+/* ========================================
+   PÁGINA PRINCIPAL - ESTILOS BASE
+   Estructura principal para replicar home.ejs
+   ======================================== */
+
+.homePage {
+  position: relative;
+  width: 100%;
+}
+
+/* ========================================
+   HERO SECTION BASE
+   ======================================== */
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 50%, var(--secondary-green) 100%);
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* Efecto de movimiento sutil en el fondo */
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(139, 195, 74, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(46, 125, 50, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(139, 195, 74, 0.08) 0%, transparent 50%);
+  animation: backgroundShift 20s infinite ease-in-out;
+}
+
+@keyframes backgroundShift {
+  0%, 100% {
+    transform: translateY(0px);
+    opacity: 0.8;
+  }
+  33% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  66% {
+    transform: translateY(5px);
+    opacity: 0.9;
+  }
+}
+
+/* ========================================
+   PLACEHOLDERS TEMPORALES CON EFECTOS
+   ======================================== */
+.modelPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: 2px dashed var(--primary-cream);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  /* Efecto de pulso sutil */
+  animation: modelPlaceholderGlow 4s infinite ease-in-out;
+}
+
+.modelPlaceholder::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(139, 195, 74, 0.1) 50%,
+    transparent 70%
+  );
+  animation: placeholderShine 6s infinite ease-in-out;
+}
+
+@keyframes modelPlaceholderGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(139, 195, 74, 0.2);
+    border-color: var(--primary-cream);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(139, 195, 74, 0.4);
+    border-color: rgba(139, 195, 74, 0.6);
+  }
+}
+
+@keyframes placeholderShine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(0%) translateY(0%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.placeholderContent {
+  text-align: center;
+  color: var(--primary-cream);
+}
+
+.featuresSection {
+  background: var(--primary-cream);
+}
+
+.featuredProducts {
+  background: var(--accent-cream) !important;
+  position: relative;
+}
+
+.sectionDivider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+.ctaSection {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  border: 2px solid var(--border-gray);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(139, 195, 74, 0.05) 50%,
+    transparent 100%
+  );
+  animation: ctaShine 4s infinite ease-in-out;
+}
+
+@keyframes ctaShine {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.ctaSection .btn {
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  border: none;
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+}
+
+.ctaSection .btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(46, 125, 50, 0.4);
+}
+
+/* ========================================
+   RESPONSIVE CON OPTIMIZACIONES DE EFECTOS
+   ======================================== */
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 80vh;
+    text-align: center;
+  }
+  
+  .modelPlaceholder {
+    height: 250px;
+    margin-top: 2rem;
+  }
+  
+  /* Reducir efectos en móviles para mejor rendimiento */
+  :global(.particles::before),
+  :global(.particles::after) {
+    animation-duration: 25s; /* Más lento en móviles */
+  }
+  
+  :global(.lightning-effect::before),
+  :global(.lightning-effect::after) {
+    animation-duration: 6s; /* Más lento */
+  }
+  
+  :global(.energy-rings) {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* En pantallas muy pequeñas, reducir aún más los efectos */
+  :global(.ring-2),
+  :global(.ring-3) {
+    opacity: 0.5;
+  }
+  
+  :global(.lightning-effect::after) {
+    display: none; /* Ocultar el segundo rayo en pantallas muy pequeñas */
+  }
+}
+
+/* Optimización para dispositivos con preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  :global(.particles::before),
+  :global(.particles::after),
+  :global(.lightning-effect::before),  
+  :global(.lightning-effect::after),
+  :global(.ring),
+  .heroBackground,
+  .modelPlaceholder {
+    animation: none;
+  }
+  
+  .modelPlaceholder::before {
+    display: none;
+  }
+}
+
+/* ========================================
+   CLASES GLOBALES PARA COMPATIBILIDAD
+   ======================================== */
+:global(.hero-content) {
+  position: relative;
+  z-index: 2;
+}
+
+:global(.hero-title) {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+:global(.text-gradient) {
+  background: linear-gradient(135deg, var(--primary-cream) 0%, var(--accent-cream) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+:global(.text-thunder) {
+  color: var(--secondary-green);
+  text-shadow: 0 0 20px rgba(139, 195, 74, 0.8), 0 0 40px rgba(139, 195, 74, 0.6);
+  display: block;
+  font-size: 4.5rem;
+  animation: thunderGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes thunderGlow {
+  from {
+    text-shadow: 0 0 20px rgba(139, 195, 74, 0.8), 0 0 40px rgba(139, 195, 74, 0.6);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(139, 195, 74, 1), 0 0 60px rgba(139, 195, 74, 0.8), 0 0 80px rgba(139, 195, 74, 0.6);
+  }
+}
+
+:global(.hero-subtitle) {
+  font-size: 1.5rem;
+  color: var(--primary-cream);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+:global(.hero-buttons) {
+  margin-bottom: 2rem;
+}
+
+:global(.hero-buttons .btn) {
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+:global(.hero-buttons .btn-primary) {
+  background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+  border: none;
+  color: white;
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+}
+
+:global(.hero-buttons .btn-primary:hover) {
+  background: linear-gradient(135deg, var(--hover-green) 0%, var(--secondary-green) 100%);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(46, 125, 50, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+:global(.hero-buttons .btn-outline-light) {
+  border: 2px solid var(--primary-cream);
+  color: var(--primary-cream);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+:global(.hero-buttons .btn-outline-light:hover) {
+  background: var(--primary-cream);
+  color: var(--dark-green);
+  border-color: var(--primary-cream);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+:global(.feature-card) {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  height: 100%;
+  border: 2px solid var(--border-gray);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+:global(.feature-card::before) {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(139, 195, 74, 0.1) 50%,
+    transparent 100%
+  );
+  transition: left 0.5s ease-in-out;
+}
+
+:global(.feature-card:hover) {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(46, 125, 50, 0.15);
+  border-color: var(--primary-green);
+}
+
+:global(.feature-card:hover::before) {
+  left: 100%;
+}
+
+:global(.feature-icon) {
+  font-size: 3rem;
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+:global(.feature-card:hover .feature-icon) {
+  transform: scale(1.1);
+  color: var(--secondary-green);
+}
+
+:global(.feature-card h3) {
+  color: var(--dark-green);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+:global(.feature-card p) {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ========================================
+   EFECTOS VISUALES DE FONDO
+   Sub-iteración 4.3: Partículas, rayos y animaciones
+   ======================================== */
+
+/* Sistema de Partículas */
+:global(.particles) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 1;
+}
+
+:global(.particles::before),
+:global(.particles::after) {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(139, 195, 74, 0.6);
+  border-radius: 50%;
+  animation: particleFloat 15s infinite linear;
+}
+
+:global(.particles::before) {
+  top: 20%;
+  left: 10%;
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+:global(.particles::after) {
+  top: 80%;
+  right: 15%;
+  animation-delay: -10s;
+  animation-duration: 18s;
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-100px) translateX(50px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(-200px) translateX(-30px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-100px) translateX(80px) rotate(270deg);
+  }
+}
+
+/* Efectos de Rayos/Lightning */
+:global(.lightning-effect) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  pointer-events: none;
+}
+
+:global(.lightning-effect::before) {
+  content: '';
+  position: absolute;
+  top: 30%;
+  right: 20%;
+  width: 2px;
+  height: 150px;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    rgba(139, 195, 74, 0.8) 20%, 
+    rgba(139, 195, 74, 1) 50%, 
+    rgba(139, 195, 74, 0.8) 80%, 
+    transparent 100%
+  );
+  transform: rotate(15deg);
+  animation: lightningFlash 3s infinite ease-in-out;
+  box-shadow: 0 0 10px rgba(139, 195, 74, 0.5);
+}
+
+:global(.lightning-effect::after) {
+  content: '';
+  position: absolute;
+  bottom: 25%;
+  left: 15%;
+  width: 2px;
+  height: 120px;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    rgba(139, 195, 74, 0.6) 30%, 
+    rgba(139, 195, 74, 0.9) 60%, 
+    transparent 100%
+  );
+  transform: rotate(-25deg);
+  animation: lightningFlash 4s infinite ease-in-out;
+  animation-delay: -1.5s;
+  box-shadow: 0 0 8px rgba(139, 195, 74, 0.4);
+}
+
+@keyframes lightningFlash {
+  0%, 90%, 100% {
+    opacity: 0;
+    transform: scale(1) rotate(15deg);
+  }
+  5%, 10% {
+    opacity: 1;
+    transform: scale(1.1) rotate(15deg);
+  }
+  15%, 25% {
+    opacity: 0.3;
+    transform: scale(0.9) rotate(15deg);
+  }
+  30%, 35% {
+    opacity: 1;
+    transform: scale(1.05) rotate(15deg);
+  }
+}
+
+/* Anillos de Energía */
+:global(.energy-rings) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  pointer-events: none;
+}
+
+:global(.ring) {
+  position: absolute;
+  border: 2px solid rgba(139, 195, 74, 0.3);
+  border-radius: 50%;
+  animation: ringPulse 4s infinite ease-in-out;
+}
+
+:global(.ring-1) {
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  animation-delay: 0s;
+}
+
+:global(.ring-2) {
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  animation-delay: -1.3s;
+  border-color: rgba(139, 195, 74, 0.2);
+}
+
+:global(.ring-3) {
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  animation-delay: -2.6s;
+  border-color: rgba(139, 195, 74, 0.1);
+}
+
+@keyframes ringPulse {
+  0%, 100% {    transform: scale(0.8);
+    opacity: 0;
+    border-width: 3px;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+    border-width: 1px;
+  }
+}
+
+/* ========================================
+   LOADING SKELETONS PARA PRODUCTOS
+   ======================================== */
+.productSkeleton {
+  background: white;
+  border-radius: 15px;
+  border: 2px solid var(--border-gray);
+  overflow: hidden;
+  height: 450px;
+  animation: pulse 1.5s ease-in-out infinite alternate;
+}
+
+.skeletonImage {
+  height: 250px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.skeletonContent {
+  padding: var(--spacing-lg);
+}
+
+.skeletonLine {
+  height: 16px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  border-radius: 8px;
+  margin-bottom: var(--spacing-sm);
+  animation: shimmer 2s infinite;
+}
+
+.skeletonLine:first-child {
+  width: 70%;
+}
+
+.skeletonLine:nth-child(2) {
+  width: 90%;
+}
+
+.skeletonLine:last-child {
+  width: 60%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+/* ========================================
+   ESTADOS DE PRODUCTOS API - SUB-ITERACIÓN 4.5 + 4.6
+   Optimizaciones de UX y transiciones suaves
+   ======================================== */
+
+/* Estado de carga de productos mejorado */
+.loadingState {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  border: 1px solid var(--light-gray);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.loadingState .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.3em;
+  animation: spin 1s linear infinite;
+}
+
+/* Estado vacío mejorado con transiciones */
+.emptyState {
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  border: 2px dashed var(--medium-gray);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.emptyState:hover {
+  border-color: var(--primary-green);
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.1);
+}
+
+.emptyState button {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.emptyState button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(46, 125, 50, 0.2);
+}
+
+/* Animaciones de aparición */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,460 @@
+/* src/components/layout/Navbar/Navbar.module.css */
+
+/* ========================================
+   NAVBAR MODERNIZADO - PALETA VERDE + CREMA
+   Estilos para ambos tipos de navbar (guest y user)
+   ======================================== */
+
+/* Base común para ambos navbars */
+.navbar {
+  padding: 12px 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+/* ========================================
+   NAVBAR GUEST MODERNIZADO
+   ======================================== */
+.navbarGuest {
+  background: linear-gradient(135deg, var(--primary-cream) 0%, var(--accent-cream) 100%) !important;
+  border-bottom: 3px solid var(--primary-green);
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.08);
+}
+
+/* ========================================
+   NAVBAR USER MODERNIZADO
+   ======================================== */
+.navbarUser {
+  background: linear-gradient(135deg, var(--primary-cream) 0%, var(--accent-cream) 100%) !important;
+  border-bottom: 3px solid var(--primary-green);
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.08);
+}
+
+.navbarUser:hover {
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.12);
+}
+
+/* ========================================
+   BRAND MEJORADO (común para ambos)
+   ======================================== */
+.brandEnhanced {
+  color: var(--primary-green) !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.brandEnhanced:hover {
+  color: var(--hover-green) !important;
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+.brandEnhanced :global(.bi-motorcycle) {
+  font-size: 1.8rem;
+  color: var(--secondary-green);
+}
+
+.brandEnhanced :global(.brand-text) {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   BOTÓN DE AUTENTICACIÓN PREMIUM (Guest)
+   ======================================== */
+.btnAuthGuest {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.btnAuthGuest::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btnAuthGuest:hover::before {
+  left: 100%;
+}
+
+.btnAuthGuest:hover {
+  background: linear-gradient(135deg, var(--hover-green) 0%, var(--primary-green) 100%);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.btnAuthGuest:active {
+  transform: translateY(-1px) scale(1.02);
+  transition: all 0.1s;
+}
+
+.btnAuthGuest:focus {
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+}
+
+/* ========================================
+   CARRITO MODERNIZADO (User)
+   ======================================== */
+.navCartModern {
+  background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+  color: white !important;
+  padding: 10px 15px !important;
+  border-radius: 15px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+  margin-right: 15px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.navCartModern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.navCartModern:hover {
+  color: white !important;
+  background: linear-gradient(135deg, var(--hover-green) 0%, var(--secondary-green) 100%);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+  text-decoration: none;
+}
+
+.navCartModern:hover::before {
+  left: 100%;
+}
+
+.navCartModern:focus {
+  color: white !important;
+  text-decoration: none;
+}
+
+/* ========================================
+   DROPDOWN DE USUARIO PROFESIONAL
+   ======================================== */
+.userDropdownModern {
+  background: linear-gradient(135deg, var(--accent-cream) 0%, var(--primary-cream) 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 15px;
+  padding: 8px 16px;
+  color: var(--dark-green);
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.userDropdownModern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(46, 125, 50, 0.05), transparent);
+  transition: left 0.5s;
+}
+
+.userDropdownModern:hover {
+  background: linear-gradient(135deg, var(--light-green) 0%, var(--accent-cream) 100%);
+  border-color: var(--secondary-green);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.15);
+  color: var(--primary-green);
+  text-decoration: none;
+}
+
+.userDropdownModern:hover::before {
+  left: 100%;
+}
+
+.userDropdownModern:focus {
+  color: var(--primary-green);
+  text-decoration: none;
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+}
+
+.userDropdownModern:active {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+  color: white;
+  border-color: var(--hover-green);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 991px) {
+  .navbar {
+    padding: 8px 0;
+  }
+  
+  .brandEnhanced {
+    font-size: 1.3rem;
+  }
+  
+  .brandEnhanced :global(.bi-motorcycle) {
+    font-size: 1.5rem;
+  }
+  
+  .btnAuthGuest {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .btnAuthGuest :global(.auth-text) {
+    align-items: center;
+  }
+  
+  .userDropdownModern {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .navCartModern {
+    margin-top: 5px;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .brandEnhanced :global(.brand-text) {
+    font-size: 1.1rem;
+  }
+  
+  .btnAuthGuest {
+    padding: 12px 16px;
+  }
+  
+  .btnAuthGuest :global(.auth-primary) {
+    font-size: 0.85rem;
+  }
+  
+  .btnAuthGuest :global(.auth-secondary) {
+    font-size: 0.7rem;
+  }
+}
+
+/* ========================================
+   CLASES GLOBALES PARA BOOTSTRAP
+   ======================================== */
+:global(.auth-text) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+:global(.auth-primary) {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+:global(.auth-secondary) {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+:global(.user-avatar) {
+  font-size: 1.5rem;
+  color: var(--primary-green);
+}
+
+:global(.user-info) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+:global(.user-cedula) {
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+:global(.user-role) {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  color: var(--secondary-green);
+}
+
+:global(.cart-badge) {
+  background-color: var(--secondary-green) !important;
+  border: 2px solid var(--primary-cream);
+  font-size: 0.6rem;
+  transform: translate(-50%, -30%) !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* Dropdown menu styles */
+:global(.user-dropdown-menu) {
+  background-color: var(--primary-cream);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
+  padding: 8px 0;
+  margin-top: 8px;
+}
+
+:global(.dropdown-user-info) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+}
+
+:global(.user-avatar-large) {
+  font-size: 2rem;
+  color: var(--primary-green);
+}
+
+:global(.dropdown-username) {
+  font-weight: 700;
+  color: var(--dark-green);
+  font-size: 0.9rem;
+}
+
+:global(.dropdown-role) {
+  color: var(--secondary-green);
+  font-size: 0.75rem;
+}
+
+:global(.dropdown-item-modern) {
+  color: var(--dark-green);
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+:global(.dropdown-item-modern:hover) {
+  background-color: var(--light-green);
+  color: var(--primary-green);
+  transform: translateX(5px);
+}
+
+:global(.dropdown-item-logout) {
+  color: var(--error-red);
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+:global(.dropdown-item-logout:hover) {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--error-red);
+  transform: translateX(5px);
+}
+
+/* Custom toggler */
+:global(.custom-toggler) {
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 6px 10px;
+  transition: all 0.3s ease;
+}
+
+:global(.custom-toggler:hover) {
+  background-color: var(--light-green);
+  border-color: var(--secondary-green);
+}
+
+:global(.custom-toggler:focus) {
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+}
+
+/* Nav links enhanced */
+:global(.nav-link-enhanced) {
+  color: var(--dark-green) !important;
+  font-weight: 600;
+  padding: 8px 16px !important;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  align-items: center;
+  margin: 0 4px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+:global(.nav-link-enhanced::before) {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(46, 125, 50, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+:global(.nav-link-enhanced:hover) {
+  color: var(--primary-green) !important;
+  background: linear-gradient(135deg, var(--light-green) 0%, var(--accent-cream) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.15);
+  text-decoration: none;
+}
+
+:global(.nav-link-enhanced:hover::before) {
+  left: 100%;
+}
+
+:global(.nav-link-enhanced .bi) {
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+}

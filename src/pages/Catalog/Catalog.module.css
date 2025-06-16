@@ -1,0 +1,210 @@
+/* src/pages/Catalog/Catalog.module.css */
+
+/* === PÁGINA CATALOG - SUB-ITERACIÓN 5.2 === */
+
+.catalogPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Header del catálogo */
+.catalogHeader {
+  padding: var(--spacing-lg) 0;
+  border-bottom: 1px solid var(--light-gray);
+  margin-bottom: var(--spacing-xl);
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.catalogTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Sección de filtros */
+.filtersSection {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Sección de paginación */
+.paginationSection {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .catalogTitle {
+    font-size: 2rem;
+  }
+  
+  .filtersSection {
+    padding: var(--spacing-lg);
+  }
+  
+  .paginationSection {
+    padding: var(--spacing-md);
+  }
+}
+
+/* Estados de carga */
+.loadingState {
+  padding: var(--spacing-xxl);
+  background: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.loadingState .spinner-border {
+  border-width: 3px;
+}
+
+/* Estado vacío */
+.emptyState {
+  padding: var(--spacing-xxl);
+  background: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.emptyState i {
+  opacity: 0.5;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Placeholder de paginación */
+.paginationPlaceholder {
+  padding: var(--spacing-xl);
+  background: white;
+  border-radius: var(--border-radius-lg);
+  border: 2px dashed var(--light-gray);
+  margin-top: var(--spacing-xl);
+}
+
+/* Call to action section */
+.ctaSection {
+  border: 2px solid var(--primary-green);
+  background: linear-gradient(135deg, var(--primary-cream) 0%, #fff 100%);
+  transition: var(--transition-normal);
+}
+
+.ctaSection:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Grid de productos - Optimizaciones */
+.catalogPage .row.g-4 {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 1.5rem;
+}
+
+/* Animaciones de entrada */
+.catalogPage {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .catalogHeader {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .catalogPage {
+    background: #f8f9fa;
+  }
+  
+  .catalogHeader {
+    margin: 0 -15px var(--spacing-lg) -15px;
+    border-radius: 0;
+  }
+  
+  .catalogPage .container {
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+  }
+}
+
+/* Mejoras de accesibilidad */
+.catalogPage button:focus,
+.catalogPage .btn:focus {
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.25);
+}
+
+/* Estados hover mejorados */
+.catalogHeader button {
+  transition: all var(--transition-normal);
+}
+
+.catalogHeader button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.catalogHeader button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Información de estado */
+.catalogPage .alert {
+  border-radius: var(--border-radius-lg);
+  border: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.catalogPage .alert-info {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  color: #0d47a1;
+}
+
+/* Optimizaciones para el grid */
+@media (min-width: 1400px) {
+  .catalogPage .col-xl-3 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+
+/* Estados de loading con skeleton effect */
+.loadingState {
+  position: relative;
+  overflow: hidden;
+}
+
+.loadingState::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
