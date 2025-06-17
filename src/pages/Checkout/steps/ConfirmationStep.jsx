@@ -5,6 +5,7 @@ import { useCart } from '../../../hooks/useCart';
 import { useCheckout } from '../../../context/CheckoutContext';
 import checkoutService from '../../../services/checkoutService';
 import { formatPrice } from '../../../utils/cartHelpers';
+import InvoiceModal from '../../../components/modals/InvoiceModal/InvoiceModal';
 import styles from './ConfirmationStep.module.css';
 
 /**
@@ -23,11 +24,11 @@ const ConfirmationStep = () => {
     prevStep,
     resetCheckout
   } = useCheckout();
-
   // Estados locales
   const [isProcessing, setIsProcessing] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [confirmationData, setConfirmationData] = useState(null);
+  const [showInvoiceModal, setShowInvoiceModal] = useState(false);
 
   // Validar que tenemos toda la información necesaria
   useEffect(() => {
@@ -85,12 +86,21 @@ const ConfirmationStep = () => {
       setIsProcessing(false);
     }
   };
-
   // Handler para cerrar modal y navegar
   const handleModalClose = (destination = '/orders') => {
     setShowSuccessModal(false);
     resetCheckout();
     navigate(destination);
+  };
+
+  // Handler para abrir modal de factura
+  const handleShowInvoice = () => {
+    setShowInvoiceModal(true);
+  };
+
+  // Handler para cerrar modal de factura
+  const handleCloseInvoice = () => {
+    setShowInvoiceModal(false);
   };
 
   // Handler para volver al paso anterior
@@ -279,13 +289,21 @@ const ConfirmationStep = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Modal de éxito */}
+      </div>      {/* Modal de éxito */}
       {showSuccessModal && confirmationData && (
         <SuccessModal 
           data={confirmationData}
           onClose={handleModalClose}
+          onShowInvoice={handleShowInvoice}
+        />
+      )}
+
+      {/* Modal de vista previa de factura */}
+      {showInvoiceModal && confirmationData && (
+        <InvoiceModal
+          isOpen={showInvoiceModal}
+          onClose={handleCloseInvoice}
+          orderId={confirmationData.orderId}
         />
       )}
     </div>
@@ -296,7 +314,7 @@ const ConfirmationStep = () => {
  * Modal de confirmación de éxito
  * Replica exactamente el modal del original
  */
-const SuccessModal = ({ data, onClose }) => {
+const SuccessModal = ({ data, onClose, onShowInvoice }) => {
   const { orderId, total } = data;
 
   useEffect(() => {
@@ -390,14 +408,13 @@ const SuccessModal = ({ data, onClose }) => {
           </div>
           
           <div className={`modal-footer ${styles.successFooter}`}>
-            <div className={styles.footerActions}>
-              <button 
+            <div className={styles.footerActions}>              <button 
                 type="button" 
                 className="btn btn-success btn-modern btn-action"
-                onClick={() => onClose('/facturas')}
+                onClick={onShowInvoice}
               >
-                <i className="bi bi-receipt me-2"></i>
-                Ver mi factura
+                <i className="bi bi-receipt"></i>
+                {' '}Ver mi factura
               </button>
               <button 
                 type="button"
@@ -428,7 +445,8 @@ SuccessModal.propTypes = {
     total: PropTypes.number.isRequired,
     paymentMethod: PropTypes.string
   }).isRequired,
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
+  onShowInvoice: PropTypes.func.isRequired
 };
 
 export default ConfirmationStep;

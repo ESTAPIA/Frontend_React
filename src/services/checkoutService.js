@@ -118,6 +118,47 @@ class CheckoutService {
         error: error.response?.data?.error || 'Error al cancelar el pedido'
       };
     }
+  }  /**
+   * Obtener detalles completos del pedido para facturación
+   * @param {number} orderId - ID del pedido
+   * @returns {Promise<Object>}
+   */
+  async getOrderDetails(orderId) {
+    try {
+      // ✅ USAR ENDPOINT DE FACTURA QUE INCLUYE DATOS COMPLETOS DEL CLIENTE
+      const response = await apiClient.get(`/facturas/pedido/${orderId}`);
+      console.log('✅ Detalles completos obtenidos desde factura:', response.data);
+      
+      // Si existe la factura, usar sus datos que incluyen cliente completo
+      if (response.data) {
+        return {
+          success: true,
+          data: response.data
+        };
+      }
+      
+      // Fallback por si no hay factura
+      throw new Error('No se encontró la factura del pedido');
+      
+    } catch (error) {
+      console.warn('⚠️ Error con endpoint de factura, intentando pedido básico:', error);
+      
+      // FALLBACK: Si falla factura, usar endpoint básico de pedido
+      try {
+        const pedidoResponse = await apiClient.get(`/pedidos/${orderId}`);
+        console.log('⚠️ Usando datos básicos del pedido (sin cliente):', pedidoResponse.data);
+        return {
+          success: true,
+          data: pedidoResponse.data
+        };
+      } catch (pedidoError) {
+        console.error('❌ Error al obtener detalles del pedido:', pedidoError);
+        return {
+          success: false,
+          error: pedidoError.response?.data?.error || 'Error al cargar los detalles del pedido'
+        };
+      }
+    }
   }
 }
 
